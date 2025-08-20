@@ -77,11 +77,13 @@ CREATE TABLE IF NOT EXISTS `failed_jobs` (
 DROP TABLE IF EXISTS `galeri`;
 CREATE TABLE IF NOT EXISTS `galeri` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `judul` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `keterangan` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `gambar` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `keygaleri` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `keygaleri` (`keygaleri`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -123,20 +125,6 @@ CREATE TABLE IF NOT EXISTS `job_batches` (
   `finished_at` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kategori`
---
-
-DROP TABLE IF EXISTS `kategori`;
-CREATE TABLE IF NOT EXISTS `kategori` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nama` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `gambar` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -223,38 +211,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Fazal', 'admin', 'zetsu680@gmail.com', '2025-06-19 12:37:33', '$2y$12$uvS7SkdEs/gaxcnTlpyd0OqqSDHdfuIemWty3eUIuhRw1A8r.Z6bW', 'admin', NULL, '2025-06-19 12:37:34', '2025-06-23 08:02:46');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `wisata`
---
-
-DROP TABLE IF EXISTS `wisata`;
-CREATE TABLE IF NOT EXISTS `wisata` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `idkategori` int DEFAULT NULL,
-  `nama` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `ketrengan` text COLLATE utf8mb4_general_ci NOT NULL,
-  `gambar` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `keygaleri` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `idkategori` (`idkategori`),
-  KEY `keygaleri` (`keygaleri`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `wisata`
---
-ALTER TABLE `wisata`
-  ADD CONSTRAINT `wisata_ibfk_1` FOREIGN KEY (`idkategori`) REFERENCES `kategori` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT,
-  ADD CONSTRAINT `wisata_ibfk_2` FOREIGN KEY (`keygaleri`) REFERENCES `galeri` (`keygaleri`) ON DELETE SET NULL ON UPDATE RESTRICT;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
