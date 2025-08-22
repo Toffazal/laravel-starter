@@ -5,20 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="Cache-Control" content="max-age=3600" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Eegyo SIMS, sebuah solusi inovatif untuk mengelola semua aspek penting dalam operasional sekolah Anda. SIMS dirancang untuk menyederhanakan tata kelola data dan proses birokrasi sekolah menjadi pengalaman yang efisien, efektif, dan terpadu secara digital.">
-    <meta name="keywords"
-        content="eegyo, Eegyo, PT. Eegyo Link Partner, aplikasi sekolah, sis, sims, sistem informasi sekolah, sistem informasi management sekolah, sistem sekolah, eegyo sims">
+    <meta name="description" content="{{ $website->deskripsi }}">
+    <meta name="{{ $website->keyword }}">
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Eegyo SIMS | Sistem Informasi Management Sekolah" />
-    <meta property="og:description"
-        content="Eegyo SIMS, sebuah solusi inovatif untuk mengelola semua aspek penting dalam operasional sekolah Anda. SIMS dirancang untuk menyederhanakan tata kelola data dan proses birokrasi sekolah menjadi pengalaman yang efisien, efektif, dan terpadu secara digital." />
+    <meta property="og:title" content="{{ $title }}" />
+    <meta property="og:description" content="{{ $website->deskripsi }}" />
     <meta property="og:url" content="{{ url('/') }}" />
-    <meta property="og:image" content="{{ asset('img/icon.png') }}" />
+    <meta property="og:image" content="{{ asset('img/' . $website->icon) }}" />
 
-    <link rel="icon" type="image/png" href="{{ asset('img/icon.png') }}" />
-    <title>Eegyo SIMS | Sistem Informasi Management Sekolah</title>
+    <link rel="shortcut icon" href="{{ asset('img/' . $website->icon) }}">
+    <title>{{ $title }}</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
@@ -50,8 +47,10 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-white poppins fixed-top shadow-sm wow pulse">
         <div class="container-fluid">
-            <img src="{{ asset('img/logo.png') }}" alt="Logo Eegyo SIMS" width="120px" height="100%"
-                class="me-5 ms-4 my-1">
+            <a href="{{ url('/') }}">
+                <img src="{{ asset('img/logo.png') }}" alt="Logo Eegyo SIMS" width="120px" height="100%"
+                    class="me-5 ms-4 my-1">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -101,8 +100,8 @@
 
         <div class="row">
             <div class="col-lg-3">
-                <img class="lazyload" src="{{ asset('img/preview.png') }}" data-src="{{ asset('img/logo.png') }}"
-                    alt="Logo Eegyo" width="200px" height="80px">
+                <img class="lazyload" src="{{ asset('img/preview.png') }}"
+                    data-src="{{ asset('img/' . $website->logo) }}" alt="Logo Eegyo" width="200px" height="80px">
                 <p class="sans mt-4 mb-2"><i class="fas fa-envelope"></i> eegyocompanion@gmail.com</p>
                 <p class="sans"><i class="fa-brands fa-whatsapp"></i> 0896-1332-5456</p>
             </div>

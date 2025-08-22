@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 02, 2025 at 10:26 AM
+-- Generation Time: Aug 22, 2025 at 08:31 PM
 -- Server version: 9.1.0
 -- PHP Version: 8.3.14
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `laravelgiswisatapolygonal`
+-- Database: `laravel-starter`
 --
 
 -- --------------------------------------------------------
@@ -77,10 +77,10 @@ CREATE TABLE IF NOT EXISTS `failed_jobs` (
 DROP TABLE IF EXISTS `galeri`;
 CREATE TABLE IF NOT EXISTS `galeri` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `judul` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `keterangan` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `gambar` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `keygaleri` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `judul` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `keterangan` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `gambar` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `keygaleri` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -211,9 +211,30 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Fazal', 'admin', 'zetsu680@gmail.com', '2025-06-19 12:37:33', '$2y$12$uvS7SkdEs/gaxcnTlpyd0OqqSDHdfuIemWty3eUIuhRw1A8r.Z6bW', 'admin', NULL, '2025-06-19 12:37:34', '2025-06-23 08:02:46');
 
+-- --------------------------------------------------------
+
 --
--- Constraints for dumped tables
+-- Table structure for table `website`
 --
+
+DROP TABLE IF EXISTS `website`;
+CREATE TABLE IF NOT EXISTS `website` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nama` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `deskripsi` text COLLATE utf8mb4_general_ci NOT NULL,
+  `keyword` varchar(500) COLLATE utf8mb4_general_ci NOT NULL,
+  `icon` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `logo` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `website`
+--
+
+INSERT INTO `website` (`id`, `nama`, `deskripsi`, `keyword`, `icon`, `logo`) VALUES
+(1, 'Laravel Starter', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit dolor facere earum, explicabo accusantium aliquid magnam nam velit suscipit odio amet non. Quam nam nulla doloribus quos quas voluptatibus saepe.', 'laravel starter', 'icon.png', 'logo.png');
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

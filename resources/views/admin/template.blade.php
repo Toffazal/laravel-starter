@@ -8,7 +8,7 @@
     <meta name="robots" content="noindex,nofollow">
     <title>{{ $title }}</title>
     <!-- Icon -->
-    <link rel="shortcut icon" href="{{ asset('img/icon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('img/' . $website->icon) }}">
     <!-- Custom CSS -->
     <link href="{{ asset('admin-assets/css/style.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin-assets/css/style.css') }}" rel="stylesheet">
@@ -60,13 +60,13 @@
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
-                            <img src="{{ asset('img/logo.png') }}" height="30px" alt="homepage" />
+                            <img src="{{ asset('img/' . $website->logo) }}" height="30px" alt="homepage" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         {{-- <span class="logo-text">
-                            <h2 class="text-dark mt-4 bold" title="Eegyo SIMS">
-                                Eegyo SIMS</h2>
+                            <h2 class="text-dark mt-4 bold" title="{{$website->nama}}">
+                                {{$website->nama}}</h2>
                         </span> --}}
                     </a>
                     <!-- ============================================================== -->
@@ -220,7 +220,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center">Eegyo SIMS</footer>
+            <footer class="footer text-center">{{ $website->nama }}</footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
